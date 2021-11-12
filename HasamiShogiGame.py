@@ -168,7 +168,7 @@ class HasamiShogiGame:
             return False
         self.move_piece(piece, target)
         self.capture(target)
-        self.print_board()
+        # self.print_board()
         if self._active_player == "BLACK":
             if self._black_captured == 8:
                 print("Black Wins!")
