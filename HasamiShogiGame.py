@@ -155,7 +155,7 @@ class HasamiShogiGame:
         return
 
     def make_move(self, piece, target):
-        """Moves piece from location piece to location target, if that move is legal. If that move causes captures,
+        """Moves piece from piece location to target location if that move is legal. If that move causes captures,
         captures those pieces and iterates the capture count. Ends the game if 8 pieces are captured by the player,
         otherwise changes the active player to the the opponent."""
         if self.valid_move(piece, target) == 0:
