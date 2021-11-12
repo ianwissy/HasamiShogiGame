@@ -90,12 +90,6 @@ class HasamiShogiGame:
                     return 0
         return
 
-    def move_piece(self, piece, target):
-        """Moves the piece at location piece to location target."""
-        self._board[to_num(target[0])][int(target[1])] = self._board[to_num(piece[0])][int(piece[1])]
-        self._board[to_num(piece[0])][int(piece[1])] = "."
-        return
-
     def capture(self, target):
         """Captures all pieces caused by the move to the target location."""
         row = to_num(target[0])
@@ -166,19 +160,20 @@ class HasamiShogiGame:
         otherwise changes the active player to the the opponent."""
         if self.valid_move(piece, target) == 0:
             return False
-        self.move_piece(piece, target)
+        self._board[to_num(target[0])][int(target[1])] = self._board[to_num(piece[0])][int(piece[1])]
+        self._board[to_num(piece[0])][int(piece[1])] = "."
         self.capture(target)
         # self.print_board()
         if self._active_player == "BLACK":
             if self._black_captured == 8:
-                print("Black Wins!")
+                # print("Black Wins!")
                 self._game_state = "BLACK_WON"
                 return True
             self._active_player = "RED"
             return True
         else:
             if self._red_captured == 8:
-                print("Red Wins!")
+                # print("Red Wins!")
                 self._game_state = "RED_WON"
                 return True
             self._active_player = "BLACK"
