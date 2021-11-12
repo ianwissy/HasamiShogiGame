@@ -3,6 +3,7 @@
 # Contains a class allowing the user to play the Hasami Shogi Game.
 
 def to_num(char):
+    """Returns the row index of the character labels for the Hasami Shogi board."""
     return ord(char) - ord("`")
 
 
