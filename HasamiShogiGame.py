@@ -175,8 +175,7 @@ class HasamiShogiGame:
         self._board[to_num(target[0])][int(target[1])] = self._board[to_num(piece[0])][int(piece[1])]
         self._board[to_num(piece[0])][int(piece[1])] = "."
         self.capture(target)
-        self.print_board()
-        print(self._active_player)
+        # self.print_board()
         if self._active_player == "BLACK":
             if self._black_captured >= 8:
                 # print("Black Wins!")
